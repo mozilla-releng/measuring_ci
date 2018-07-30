@@ -155,10 +155,10 @@ six==1.11.0 \
 slugid==1.0.7 \
     --hash=sha256:6dab3c7eef0bb423fb54cb7752e0f466ddd0ee495b78b763be60e8a27f69e779 \
     # via taskcluster
-taskcluster==3.0.2 \
-    --hash=sha256:0794163ac0089317bd398cea00ed01e173edacaa17c4ce517c7fdde639ae145e \
-    --hash=sha256:9b5269735a747fecf0530b5caf3dd4905a86c73534338e48ba268bf55f0938ff \
-    --hash=sha256:e3a344da01f2fe2c8c09fc893c12109bda81b0f6c6d22ccedc0814506620e89d
+taskcluster==4.0.0 \
+    --hash=sha256:5866b8e89905fd75e9467291ee1acfbc81c61b5eda6a45aea5ac63602291ad70 \
+    --hash=sha256:2574a01171704e71ab9e5b540ca176e6da44b033ba3a396856c24d11ab1e9bfc \
+    --hash=sha256:1c2b36928170ddb73ada7c5548b8ae8c9604d188d9feef79cdcb67eedd9829cc
 traitlets==4.3.2 \
     --hash=sha256:9c4bd2d267b7153df9152698efb1050a5d84982d3384a37b2c1f7723ba3e7835 \
     --hash=sha256:c6cb5e6f57c5a9bdaa40fa71ce7b4af30298fbab9ece9815b5d995ab6217c7d9 \
