@@ -131,8 +131,8 @@ pandas==0.23.3 \
     --hash=sha256:cbb074efb2a5e4956b261a670bfc2126b0ccfbf5b96b6ed021bc8c8cb56cf4a8 \
     --hash=sha256:e8c62ab16feeda84d4732c42b7b67d7a89ad89df7e99efed80ea017bdc472f26 \
     --hash=sha256:ff5ef271805fe877fe0d1337b6b1861113c44c75b9badb595c713a72cd337371
-plotly==3.0.2 \
-    --hash=sha256:5bd04a0991512fe9008ab986429ff4b4f1448cceda56ed344e0dc709f42e067a
+plotly==3.1.0 \
+    --hash=sha256:015a5b8ca616d19eb96433dd597c3ccccc80e3afba02a23bd526a017ff4fce05
 python-dateutil==2.7.3 \
     --hash=sha256:1adb80e7a782c12e52ef9a8182bebeb73f1d7e24e374397af06fb4956c8dc5c0 \
     --hash=sha256:e27001de32f627c22380a688bcc43ce83504a7bc5da472209b4c70f02829f0b8 \
