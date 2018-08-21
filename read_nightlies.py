@@ -49,7 +49,7 @@ async def main():
             taskwriter.writeheader()
 
             aiotasks = list()
-            for taskid in nightlies[:20]:
+            for taskid in nightlies:
                 aiotasks.append(
                     asyncio.ensure_future(write_data(
                         session, taskid, csvwriter=taskwriter, semaphore=semaphore))
