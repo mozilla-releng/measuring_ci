@@ -56,26 +56,29 @@ async def async_main():
         graph = await TaskGraph(args.taskgroupid)
     elif args.revision:
         graph_id = await find_taskgroup_by_revision(args)
+        print("Found {}".format(graph_id))
         graph = await TaskGraph(graph_id)
 
-
     total_wall_time_buckets = defaultdict(timedelta)
+
     for task in graph.tasks():
-        if task.completed:
-            key = task.json['status']['workerType']
-            total_wall_time_buckets[key] += task.resolved - task.started
+        key = task.json['status']['workerType']
+        total_wall_time_buckets[key] += sum(task.run_durations(), timedelta(0))
+        v2 = sum(task.run_durations(), timedelta(0))
 
     year = graph.earliest_start_time.year
     month = graph.earliest_start_time.month
     worker_type_costs = fetch_worker_costs(year, month)
 
     total_cost = 0.0
+
     for bucket in total_wall_time_buckets:
         if bucket not in worker_type_costs:
             continue
-        hours = total_wall_time_buckets[bucket].seconds/(60*60)
+
+        hours = total_wall_time_buckets[bucket].total_seconds()/(60*60)
         cost = worker_type_costs[bucket] * hours
-        # print("{0}, {1}, ${2:.2f}".format(bucket, total_wall_time_buckets[bucket], cost))
+
         total_cost += cost
 
     return total_cost
@@ -88,6 +91,7 @@ def main():
     loop.close()
 
     print(cost)
+
 
 if __name__ == '__main__':
     print("To cache task graph results:")
