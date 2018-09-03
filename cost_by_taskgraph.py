@@ -1,20 +1,13 @@
 
 import argparse
 import asyncio
-import csv
 from collections import defaultdict
 from datetime import timedelta
 
 import taskcluster.aio as taskcluster
 from taskhuddler.aio.graph import TaskGraph
 
-
-def fetch_worker_costs(year, month):
-    """static snapshot of data from worker_type_monthly_costs table."""
-    with open("aws_cost_estimates.csv", 'r') as f:
-        reader = csv.reader(f)
-        next(reader)  # skip header
-        return {row[1]: float(row[4]) for row in reader}
+from measuring_ci.costs import fetch_worker_costs
 
 
 def parse_args():
@@ -67,18 +60,17 @@ async def async_main():
         # v2 = sum(task.run_durations(), timedelta(0))
         # XXX: What was v2 for?
 
-    year = graph.earliest_start_time.year
-    month = graph.earliest_start_time.month
-    worker_type_costs = fetch_worker_costs(year, month)
+    # XXX use a config file for this arg.
+    worker_type_costs = fetch_worker_costs("aws_cost_estimates.csv")
 
     total_cost = 0.0
 
     for bucket in total_wall_time_buckets:
-        if bucket not in worker_type_costs:
+        if bucket not in worker_type_costs.index:
             continue
 
         hours = total_wall_time_buckets[bucket].total_seconds() / (60 * 60)
-        cost = worker_type_costs[bucket] * hours
+        cost = worker_type_costs.at[bucket, 'unit_cost'] * hours
 
         total_cost += cost
 
