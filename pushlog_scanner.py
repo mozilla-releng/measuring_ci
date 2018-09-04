@@ -120,7 +120,7 @@ async def main():
                 graph.groupid,
                 push,
                 pushes[args.project][push]['date'],
-                taskgraph_full_cost(graph, config['costs_csv_file'])
+                taskgraph_full_cost(graph, config['costs_csv_file']),
             ]
         )
 

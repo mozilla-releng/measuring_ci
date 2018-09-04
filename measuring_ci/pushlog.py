@@ -76,7 +76,7 @@ async def scan_pushlog(pushlog_url,
             graph_id = await find_taskgroup_by_revision(
                 revision=final_cset,
                 project=project,
-                product=product
+                product=product,
             )
             if not graph_id:
                 log.info("Couldn't find task graph for revision %s", final_cset)
@@ -84,7 +84,7 @@ async def scan_pushlog(pushlog_url,
             pushes[project][push] = {
                 "date": epoch,
                 "changeset": final_cset,
-                "taskgraph": graph_id
+                "taskgraph": graph_id,
             }
     if cache_file:
         with open_wrapper(cache_file, 'w') as f:
