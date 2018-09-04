@@ -8,6 +8,7 @@ from datetime import datetime, timedelta
 
 import pandas as pd
 import yaml
+
 from measuring_ci.files import open_wrapper
 from measuring_ci.pushlog import scan_pushlog
 from taskhuddler.aio.graph import TaskGraph
@@ -121,8 +122,7 @@ async def main():
                 push,
                 pushes[args.project][push]['date'],
                 taskgraph_full_cost(graph, config['costs_csv_file']),
-            ]
-        )
+            ])
 
     costs_df = pd.DataFrame(costs, columns=dataframe_columns)
 
