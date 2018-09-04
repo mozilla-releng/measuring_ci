@@ -1,23 +1,16 @@
-import os
-import asyncio
 import argparse
+import asyncio
 import csv
 import logging
-
+import os
 from collections import defaultdict
 from datetime import datetime, timedelta
 
-import yaml
 import pandas as pd
-
-import s3fs
-
-from taskhuddler.aio.graph import TaskGraph
-
+import yaml
 from measuring_ci.files import open_wrapper
-from measuring_ci.revision import find_taskgroup_by_revision
 from measuring_ci.pushlog import scan_pushlog
-
+from taskhuddler.aio.graph import TaskGraph
 
 logging.basicConfig(level=logging.INFO)
 
@@ -58,8 +51,6 @@ def taskgraph_full_cost(graph, costs_filename):
         key = task.json['status']['workerType']
         total_wall_time_buckets[key] += sum(task.run_durations(), timedelta(0))
 
-    year = graph.earliest_start_time.year
-    month = graph.earliest_start_time.month
     worker_type_costs = fetch_worker_costs(costs_filename)
 
     total_cost = 0.0
