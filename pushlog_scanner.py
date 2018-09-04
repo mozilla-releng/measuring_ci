@@ -35,7 +35,7 @@ def taskgraph_full_cost(graph, costs_filename):
     total_wall_time_buckets = defaultdict(timedelta)
 
     for task in graph.tasks():
-        key = (task.json['status']['workerType'])
+        key = task.json['status']['workerType']
         total_wall_time_buckets[key] += sum(task.run_durations(), timedelta(0))
 
     # year = graph.earliest_start_time.year
