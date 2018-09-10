@@ -69,7 +69,6 @@ def taskgraph_cost_final_runs_only(graph, costs_filename):
     return total_cost
 
 
-
 def taskgraph_full_cost(graph, costs_filename):
     total_wall_time_buckets = defaultdict(timedelta)
 
