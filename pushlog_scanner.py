@@ -168,7 +168,7 @@ async def main(args):
             key,
             'push',
             daily_costs[key],
-            daily_task_count.get(key, 0)
+            daily_task_count.get(key, 0),
         ])
     new_daily_costs = pd.DataFrame(dailies, columns=daily_dataframe_columns)
 
