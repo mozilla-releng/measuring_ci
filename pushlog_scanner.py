@@ -132,7 +132,7 @@ async def main(args):
                 _semaphore_wrapper,
                 TaskGraph,
                 args=(graph_id,),
-                semaphore=semaphore
+                semaphore=semaphore,
             ))
         else:
             print("Less than a day old, skipping")
