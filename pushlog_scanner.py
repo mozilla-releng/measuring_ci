@@ -121,8 +121,7 @@ async def main(args):
                     TaskGraph,
                     args=(graph_id,),
                     semaphore=semaphore,
-                )
-            ))
+                )))
         else:
             print("Less than a day old, skipping")
     taskgraphs = await asyncio.gather(*tasks)
