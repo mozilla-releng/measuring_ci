@@ -146,7 +146,6 @@ async def main(args):
     new_costs = existing_costs.merge(costs_df, how='outer')
     log.info("Writing parquet file %s", config['total_cost_output'])
     new_costs.to_parquet(config['total_cost_output'], compression='gzip')
-    print(new_costs)
 
     try:
         daily_costs_df = pd.read_parquet(config['daily_totals_output'])
