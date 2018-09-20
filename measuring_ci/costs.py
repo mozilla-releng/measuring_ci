@@ -13,7 +13,8 @@ def fetch_worker_costs(csv_filename):
         "provider",
         "provisioner",
         "worker_type",
-        "usage_hours,cost",
+        "usage_hours",
+        "cost",
     }
 
     if expect_columns.symmetric_difference(df.columns):
