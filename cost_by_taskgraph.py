@@ -7,7 +7,6 @@ from datetime import timedelta
 import taskcluster.aio as taskcluster
 
 from taskhuddler.aio.graph import TaskGraph
-
 from measuring_ci.costs import fetch_worker_costs
 
 
