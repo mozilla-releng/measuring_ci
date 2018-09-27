@@ -13,9 +13,14 @@ from measuring_ci.costs import fetch_all_worker_costs
 from measuring_ci.pushlog import scan_pushlog
 from taskhuddler.aio.graph import TaskGraph
 
-logging.basicConfig(level=logging.DEBUG)
+LOG_LEVEL = logging.DEBUG
 
+# AWS artisinal log handling, they've already set up a handler by the time we get here
 log = logging.getLogger()
+log.setLevel(LOG_LEVEL)
+# some modules are very chatty
+logging.getLogger("taskcluster").setLevel(logging.INFO)
+logging.getLogger("aiohttp").setLevel(logging.INFO)
 
 
 def parse_args():
@@ -93,6 +98,7 @@ async def scan_project(project, product, config):
                                 project=project,
                                 product=product,
                                 # starting_push=34612,
+                                backfill_count=config['backfill_count'],
                                 cache_file=config['pushlog_cache_file'])
 
     try:
@@ -188,6 +194,9 @@ async def scan_project(project, product, config):
     # index so the columns operate as expected.
     daily_costs_df = daily_costs_df.add(new_daily_costs, fill_value=0).reset_index()
 
+    # sometimes we end up with float taskcounts
+    daily_costs_df.taskcount = daily_costs_df.taskcount.astype(int)
+
     log.info("Writing parquet file %s", config['daily_totals_output'])
     daily_costs_df.to_parquet(config['daily_totals_output'], compression='gzip')
 
@@ -196,6 +205,7 @@ async def main(args):
     with open(args['config'], 'r') as y:
         config = yaml.load(y)
     os.environ['TC_CACHE_DIR'] = config['TC_CACHE_DIR']
+    config['backfill_count'] = args.get('backfill_count', None)
 
     # cope with original style, listing one project, or listing multiple
     for project in args.get('projects', [args.get('project')]):
@@ -213,5 +223,6 @@ def lambda_handler(args, context):
 
 
 if __name__ == '__main__':
+    logging.basicConfig(level=LOG_LEVEL)
     # Use command-line arguments instead of json blob if not running in AWS Lambda
-    lambda_handler(vars(parse_args()), {})
+    lambda_handler(vars(parse_args()), {'dummy': 1})
