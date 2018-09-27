@@ -18,6 +18,9 @@ LOG_LEVEL = logging.DEBUG
 # AWS artisinal log handling, they've already set up a handler by the time we get here
 log = logging.getLogger()
 log.setLevel(LOG_LEVEL)
+# some modules are very chatty
+logging.getLogger("taskcluster").setLevel(logging.INFO)
+logging.getLogger("aiohttp").setLevel(logging.INFO)
 
 
 def parse_args():
