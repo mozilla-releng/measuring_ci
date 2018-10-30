@@ -11,7 +11,8 @@ log = logging.getLogger()
 def sanitize_date(date):
     """Attempt to sanitize a date format.
 
-    Should ideally cope with epoch and also validate strings."""
+    Should ideally cope with epoch and also validate strings.
+    """
     if isinstance(date, datetime):
         return date.strftime("%Y.%m.%d")
     return date

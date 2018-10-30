@@ -37,7 +37,8 @@ async def _semaphore_wrapper(action, args, semaphore):
 def categorize_version(product, version):
     """Return a descriptive string of the release type.
 
-    Perhaps this should be in mozilla_version"""
+    Perhaps this should be in mozilla_version
+    """
     if product == 'devedition':
         return product
     elif 'b' in version:

@@ -1,5 +1,5 @@
 """
-Utilities for reading release graph data from ReleaseWarrior
+Utilities for reading release graph data from ReleaseWarrior.
 
 https://github.com/mozilla-releng/releasewarrior-data
 
@@ -55,7 +55,7 @@ def fetch_release_data(json_path):
                         'product': product,
                         'version': version,
                         'phase': graph[0],
-                        'build_number': build.get('buildnum', 1)
+                        'build_number': build.get('buildnum', 1),
                     }
             else:
                 # graphids are a flat list of graphs
@@ -64,7 +64,7 @@ def fetch_release_data(json_path):
                         'product': product,
                         'version': version,
                         'phase': unknown_phase,
-                        'build_number': build.get('buildnum', 1)
+                        'build_number': build.get('buildnum', 1),
                     }
     elif 'builds' in release_data:
         # Older RW-1 format.
@@ -74,7 +74,7 @@ def fetch_release_data(json_path):
                     'product': product,
                     'version': version,
                     'phase': unknown_phase,
-                    'build_number': build.get('buildnum', 1)
+                    'build_number': build.get('buildnum', 1),
                 }
     else:
         raise NotImplementedError('Expected to have a search feature')
