@@ -91,6 +91,6 @@ def read_release_taskgraph_ids(repository='mozilla-releng/releasewarrior-data', 
     graphs = dict()
     for path in paths:
         graphs.update(fetch_release_data(
-            repo.get_file_contents(path).decoded_content
+            repo.get_file_contents(path).decoded_content,
         ))
     return graphs
