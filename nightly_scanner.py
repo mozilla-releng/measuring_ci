@@ -75,7 +75,7 @@ async def scan_nightlies(config):
     for graph in await asyncio.gather(*tasks):
         nightlies[graph.groupid]['graph'] = graph
     # Remove ones we're skipping as already processed.
-    nightlies = {n:nightlies[n] for n in nightlies if 'graph' in nightlies[n]}
+    nightlies = {n: nightlies[n] for n in nightlies if 'graph' in nightlies[n]}
 
     costs = list()
 
