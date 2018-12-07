@@ -224,10 +224,9 @@ pycares==2.3.0 \
     # via aiodns
 pygithub==1.43.3 \
     --hash=sha256:70d90139f61a3d88417ff15eaca6150d0b3ba7ef0dc59589ea3719c3ce518ef6
-pyjwt==1.6.4 \
-    --hash=sha256:30b1380ff43b55441283cc2b2676b755cca45693ae3097325dea01f3d110628c \
-    --hash=sha256:4ee413b357d53fd3fb44704577afac88e72e878716116270d722723d65b42176 \
-    # via pygithub
+pyjwt==1.7.1 \
+    --hash=sha256:5c6eca3c2940464d106b99ba83b00c6add741c9becaec087fb7ccdefea71350e \
+    --hash=sha256:8d59a976fb773f3e6a39c85636357c4f0e242707394cadadd9814f5cbaa20e96    # via pygithub
 python-dateutil==2.7.5 \
     --hash=sha256:063df5763652e21de43de7d9e00ccf239f953a832941e37be541614732cdfc93 \
     --hash=sha256:88f9287c0174266bb0d8cedd395cfba9c58e87e5ad86b2ce58859bc11be3cf02 \
