@@ -26,8 +26,8 @@ def parse_args():
 def iter_cost_and_usage_groups(config):
     ce = boto3.client(
         'ce',
-        aws_access_key_id='<redacted>',
-        aws_secret_access_key='<redacted>'
+        aws_access_key_id='AKIAJNJITBKBSUO67ORQ',
+        aws_secret_access_key='Y531QRNqEg+72X2th6FQiFPo4IJvarPAqFAY5gAX'
         )
     next_page_token = None
     while True:  # break below
@@ -71,6 +71,7 @@ def split_worker_tag(tag):
 async def fetch_raw_cost_explorer(config):
     worker_type_re = re.compile(re.escape(r'WorkerType$'))
     rows = []
+    modified_str = datetime.now().isoformat(sep=" ")
     for group in iter_cost_and_usage_groups(config):
         # Expect only 1 key
         assert len(group['Keys']) == 1
@@ -80,24 +81,36 @@ async def fetch_raw_cost_explorer(config):
         key = worker_type_re.sub('', key)
         if not key:
             key = "<untagged>"
-        provisioner , worker_type = split_worker_tag(key)
+        provisioner, worker_type = split_worker_tag(key)
         row = {
-            'modified': datetime.now(),  # XXX Fixup
-            'year': '2018',
-            'month': '09',
+            'modified': modified_str,  # XXX Fixup
+            'year': 2018,
+            'month': 9,
             'provider': 'aws',
             'provisioner': provisioner,
             'worker_type': worker_type,
             'usage_hours': group['Metrics']['UsageQuantity']['Amount'],
             'cost': group['Metrics']['UnblendedCost']['Amount'],
         }
-        #import pdb;pdb.set_trace()
-        import pprint
-        pprint.pprint(row)
         rows.append(row)
-        #import json
-        #print(json.dumps(response))
+    df = pd.DataFrame(rows,
+                      columns=['modified', 'year', 'month', 'provider', 'provisioner',
+                               'worker_type', 'usage_hours', 'cost'])
+    return df
+
+
+async def update_worker_costs(config):
+    df_ce = await fetch_raw_cost_explorer(config)
+    #import pdb;pdb.set_trace()
+    #df = pd.DataFrame(rows,
+    #                  columns=['modified', 'year', 'month', 'provider', 'provisioner',
+    #                           'worker_type', 'usage_hours', 'cost'])
+    df = pd.read_csv('/home/callek/mozilla/obj/measure_ci/aws_cost_estimates.csv')
+    #df = df.append(rows, ignore_index=True)
     import pdb;pdb.set_trace()
+    # ??
+    df[(df['month'].isin(df_ce['month'].unique()) & df['year'].isin(df_ce['year'].unique()))]
+
 
 
 async def main(args):
@@ -106,7 +119,7 @@ async def main(args):
         config = yaml.load(cfg)
     os.environ['TC_CACHE_DIR'] = config['TC_CACHE_DIR']
 
-    await fetch_raw_cost_explorer(config)
+    await update_worker_costs(config)
 
 
 def lambda_handler(args, context):
