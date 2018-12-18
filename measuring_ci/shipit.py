@@ -6,13 +6,14 @@ import requests
 
 def fetch_shipit_taskgraph_ids(api_url='https://shipit-api.mozilla-releng.net/releases'):
     """Find release taskgraph IDs from ShipIt.
+
     https://shipit-api.mozilla-releng.net/releases?branch=releases%2Fmozilla-release&status=shipped
     """
 
     release_projects = [
         'releases/mozilla-release',
         'releases/mozilla-esr60',
-        'releases/mozilla-beta'
+        'releases/mozilla-beta',
     ]
     graphs = dict()
     for project in release_projects:
