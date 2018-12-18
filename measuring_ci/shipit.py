@@ -1,6 +1,4 @@
-"""
-Utilities for reading release graph data from ShipIt.
-"""
+"""Utilities for reading release graph data from ShipIt."""
 import requests
 
 
