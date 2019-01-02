@@ -1,9 +1,9 @@
 import argparse
 import asyncio
-from datetime import datetime, timedelta, date
 import logging
 import os
 import re
+from datetime import date, datetime, timedelta
 
 import boto3
 import pandas as pd
@@ -31,8 +31,8 @@ def iter_cost_and_usage_groups(config):
     ce = boto3.client(
         'ce',
         aws_access_key_id=config['TC_AWS_ACCESS_KEY_ID'],
-        aws_secret_access_key=config['TC_AWS_SECRET_ACCESS_KEY']
-        )
+        aws_secret_access_key=config['TC_AWS_SECRET_ACCESS_KEY'],
+    )
     next_page_token = None
     # Start Date -- Inclusive
     start_date = datetime(month=config['month'], year=config['year'], day=1)
@@ -44,7 +44,7 @@ def iter_cost_and_usage_groups(config):
             TimePeriod={
                 'Start': start_date.strftime("%Y-%m-%d"),
                 'End': end_date.strftime("%Y-%m-%d"),
-                },
+            },
             Granularity='MONTHLY',  # MONTHLY, DAILY, HOURLY
             GroupBy=[{'Type': 'TAG', 'Key': 'WorkerType'}],
             Metrics=['UnblendedCost', 'UsageQuantity'],
@@ -130,13 +130,13 @@ async def update_worker_costs(config):
                 (df['provider'] == row.provider) &
                 (df['provisioner'] == row.provisioner) &
                 (worker_type_mask)
-                )
+            )
 
         # Set these again, warn if different
         overlapped_row_costs = df.loc[
             boolean_mask_existing_row,
-            ('worker_type', 'usage_hours', 'cost')
-            ]
+            ('worker_type', 'usage_hours', 'cost'),
+        ]
         if overlapped_row_costs.empty:
             new_records.append(row)
         else:
@@ -147,11 +147,12 @@ async def update_worker_costs(config):
             # Not Empty, update for differences
             # use log.debug to avoid false positives in the warning.
             log.debug("Data differs and entry already exists for row `{}`, "
-                      "updating existing `{}`".format(row, overlapped_row_costs.to_dict(orient='records')[0])
+                      "updating existing `{}`".format(
+                          row, overlapped_row_costs.to_dict(orient='records')[0]),
                       )
             df.loc[
                 boolean_mask_existing_row,
-                ('worker_type', 'usage_hours', 'cost')
+                ('worker_type', 'usage_hours', 'cost'),
             ] = (row.worker_type, row.usage_hours, row.cost)
 
     new_df_records = pd.DataFrame.from_records(new_records,
@@ -183,7 +184,8 @@ async def main(args):
         config['TC_AWS_ACCESS_KEY_ID'] = os.environ['TC_AWS_ACCESS_KEY_ID']
         config['TC_AWS_SECRET_ACCESS_KEY'] = os.environ['TC_AWS_SECRET_ACCESS_KEY']
     else:
-        raise Exception("TC_AWS_ACCESS_KEY_ID and TC_AWS_SECRET_ACCESS_KEY are required to be passed in environment")
+        raise Exception(
+            "TC_AWS_ACCESS_KEY_ID and TC_AWS_SECRET_ACCESS_KEY are required to be passed in environment")
 
     new_df = await update_worker_costs(config)
     log.info("Writing updated file to {}".format(config['costs_csv_file']))
