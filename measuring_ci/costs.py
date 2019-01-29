@@ -49,7 +49,8 @@ def fetch_all_worker_costs(tc_csv_filename, scriptworker_csv_filename):
 def worker_unit_cost(costs, worker_type, date):
     """Fetch the worker cost for the given year and month.
 
-    Will use the nearest value if that combination is missing."""
+    Will use the nearest value if that combination is missing.
+    """
     filter_1 = costs[costs['worker_type'] == worker_type]
     filter_1.drop_duplicates(subset=['year', 'month'], keep='last', inplace=True)
     return filter_1.iloc[filter_1.index.get_loc(date.timestamp(), method='nearest')]['unit_cost']
