@@ -147,7 +147,7 @@ async def scan_project(project, product, config):
                 full_cost,
                 final_runs_cost,
                 task_count,
-                graph.total_compute_time(),
+                graph.total_compute_time().total_seconds(),
             ])
 
     costs_df = pd.DataFrame(costs, columns=cost_dataframe_columns)
@@ -172,7 +172,7 @@ async def scan_project(project, product, config):
             'push',
             daily_costs[key],
             daily_task_count.get(key, 0),
-            daily_time_used.get(key, timedelta(0))
+            daily_time_used.get(key, timedelta(0)).total_seconds(),
         ])
     new_daily_costs = pd.DataFrame(dailies, columns=daily_dataframe_columns)
 
