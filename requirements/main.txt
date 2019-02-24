@@ -81,10 +81,9 @@ jmespath==0.9.3 \
     --hash=sha256:6a81d4c9aa62caf061cb517b4d9ad1dd300374cd4706997aff9cd6aedd61fc64 \
     --hash=sha256:f11b4461f425740a1d908e9a3f7365c3d2e569f6ca68a2ff8bc5bcd9676edd63 \
     # via boto3, botocore
-jsonschema==2.6.0 \
-    --hash=sha256:000e68abd33c972a5248544925a0cae7d1125f9bf6c58280d37546b946769a08 \
-    --hash=sha256:6ff5f3180870836cae40f06fa10419f557208175f13ad7bc26caa77beb1f6e02 \
-    # via nbformat
+jsonschema==3.0.0 \
+    --hash=sha256:acc8a90c31d11060516cfd0b414b9f8bcf4bc691b21f0f786ea57dd5255c79db \
+    --hash=sha256:dd3f8ecb1b52d94d45eedb67cb86cac57b94ded562c5d98f63719e55ce58557b    # via nbformat
 jupyter-core==4.4.0 \
     --hash=sha256:927d713ffa616ea11972534411544589976b2493fc7e09ad946e010aa7eb9970 \
     --hash=sha256:ba70754aa680300306c699790128f6fbd8c306ee5927976cbe48adacf240c0b7 \
