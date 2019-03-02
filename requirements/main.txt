@@ -5,9 +5,9 @@
 #
 #    pip-compile-multi
 #
-aiodns==1.2.0 \
-    --hash=sha256:970688599fcb7d65334ec490a94a51afd634ae2de8a2138d21e2ffbbddc12718 \
-    --hash=sha256:d67e14b32176bcf3ff79b5d47c466011ce4adeadfa264f7949da1377332a0449
+aiodns==2.0.0 \
+    --hash=sha256:815fdef4607474295d68da46978a54481dd1e7be153c7d60f9e72773cd38d77d \
+    --hash=sha256:aaa5ac584f40fe778013df0aa6544bf157799bd3f608364b451840ed2c8688de
 aiohttp==3.5.4 \
     --hash=sha256:00d198585474299c9c3b4f1d5de1a576cc230d562abc5e4a0e81d71a20a6ca55 \
     --hash=sha256:0155af66de8c21b8dba4992aaeeabf55503caefae00067a3b1139f86d0ec50ed \
