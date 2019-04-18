@@ -26,9 +26,10 @@ flake8-polyfill==1.0.2 \
 flake8==3.7.7 \
     --hash=sha256:859996073f341f2670741b51ec1e67a01da142831aa1fdc6242dbf88dffbe661 \
     --hash=sha256:a796a115208f5c03b18f332f7c11729812c8c3ded6c46319c59b53efd3819da8
-isort==4.3.16 \
-    --hash=sha256:08f8e3f0f0b7249e9fad7e5c41e2113aba44969798a26452ee790c06f155d4ec \
-    --hash=sha256:4e9e9c4bd1acd66cf6c36973f29b031ec752cbfd991c69695e4e259f9a756927    # via flake8-isort
+isort==4.3.17 \
+    --hash=sha256:01cb7e1ca5e6c5b3f235f0385057f70558b70d2f00320208825fa62887292f43 \
+    --hash=sha256:268067462aed7eb2a1e237fcb287852f22077de3fb07964e87e00f829eea2d1a \
+    # via flake8-isort
 mccabe==0.6.1 \
     --hash=sha256:ab8a6258860da4b6677da4bd2fe5dc2c659cff31b3ee4f7f5d64e79735b80d42 \
     --hash=sha256:dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f \
@@ -50,6 +51,7 @@ snowballstemmer==1.2.1 \
     --hash=sha256:919f26a68b2c17a7634da993d91339e288964f93c274f1343e3bbbe2096e1128 \
     --hash=sha256:9f3bcd3c401c3e862ec0ebe6d2c069ebc012ce142cce209c098ccb5b09136e89 \
     # via pydocstyle
-testfixtures==6.6.2 \
-    --hash=sha256:79b1c1ae5407750406eaf4407ea0d4c0d50b60bec3f85494c6401e072e7d2239 \
-    --hash=sha256:fc52e99561141e2e10fd79f3a565502238adcb90f6e2a7634abceef2d2c17bf7    # via flake8-isort
+testfixtures==6.7.0 \
+    --hash=sha256:6b79324f35852eaacd4f5f440b20ee1b98df23001ff88db8b8bde3746f753f0a \
+    --hash=sha256:c0028d2acd45e6604d359b806132af05815d64e882cf995fa45e6814ddaade13 \
+    # via flake8-isort
