@@ -51,7 +51,6 @@ snowballstemmer==1.2.1 \
     --hash=sha256:919f26a68b2c17a7634da993d91339e288964f93c274f1343e3bbbe2096e1128 \
     --hash=sha256:9f3bcd3c401c3e862ec0ebe6d2c069ebc012ce142cce209c098ccb5b09136e89 \
     # via pydocstyle
-testfixtures==6.7.0 \
-    --hash=sha256:6b79324f35852eaacd4f5f440b20ee1b98df23001ff88db8b8bde3746f753f0a \
-    --hash=sha256:c0028d2acd45e6604d359b806132af05815d64e882cf995fa45e6814ddaade13 \
-    # via flake8-isort
+testfixtures==6.7.1 \
+    --hash=sha256:015f8220088c40772b48a210f6bcdf328664f66faf83432c4f7aa8e55a7cfdc5 \
+    --hash=sha256:d7558f09801ee53e0ea40eabe8d7d79cbe5b0f8a72871f1d5ae8162004011913    # via flake8-isort
