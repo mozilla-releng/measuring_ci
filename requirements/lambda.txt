@@ -279,10 +279,9 @@ typing==3.6.6 \
     --hash=sha256:57dcf675a99b74d64dacf6fba08fb17cf7e3d5fdff53d4a30ea2a5e7e52543d4 \
     --hash=sha256:a4c8473ce11a65999c8f59cb093e70686b6c84c98df58c1dae9b3b196089858a \
     # via aiodns
-urllib3==1.24.2 \
-    --hash=sha256:4c291ca23bbb55c76518905869ef34bdd5f0e46af7afe6861e8375643ffee1a0 \
-    --hash=sha256:9a247273df709c4fedb38c711e44292304f73f39ab01beda9f6b9fc375669ac3 \
-    # via botocore, requests
+urllib3==1.25.7 \
+    --hash=sha256:a8a318824cc77d1fd4b2bec2ded92646630d7fe8619497b142c84a9e6f5a7293 \
+    --hash=sha256:f3c5fd51747d450d4dcf6f923c81f78f811aab8205fda64b0aba34a4e48b0745    # via botocore, requests
 virtualenv==16.4.3 \
     --hash=sha256:6aebaf4dd2568a0094225ebbca987859e369e3e5c22dc7d52e5406d504890417 \
     --hash=sha256:984d7e607b0a5d1329425dd8845bd971b957424b5ba664729fab51ab8c11bc39
