@@ -45,10 +45,9 @@ attrs==19.1.0 \
 boto3==1.9.132 \
     --hash=sha256:35e23af3fcb0d38def987e1e4fc0652dd654b3eb0e4c9c8b2869cdaf289fbfa7 \
     --hash=sha256:603572f3824be5efc683b4c2327e2ef871d52158790b16ff754cb76b356ec3b5
-botocore==1.12.132 \
-    --hash=sha256:35c46cf79cbd7fa9b25bee74972e77756e6a584beab10f7ff52abba308e5149e \
-    --hash=sha256:f7200836d7dd77feae3af9c2e9d7769f69fb8d0ef760da635f3cb5c2ddcb8ade \
-    # via boto3, s3fs, s3transfer
+botocore==1.13.43 \
+    --hash=sha256:1c73eaf96a5f35741b72c382c5a19a97259f92271e919fd76a138991157610c4 \
+    --hash=sha256:5ac2108e44976730a514218be381cc0d83141e398fd7c55483b6ea2b181febd2    # via boto3, s3fs, s3transfer
 certifi==2019.3.9 \
     --hash=sha256:59b7658e26ca9c7339e00f8f4636cdfe59d34fa37b9b04f6f9e9926b3cece1a5 \
     --hash=sha256:b26104d6835d1f5e49452a26eb2ff87fe7090b89dfcaee5ea2212697e1e1d7ae \
