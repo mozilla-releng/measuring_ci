@@ -245,10 +245,9 @@ requests==2.21.0 \
     # via taskcluster
 s3fs==0.2.0 \
     --hash=sha256:a31fe41dd8ee8358b65e808125ab47054edebdf3d5c6d8a2139fcf4547d524dc
-s3transfer==0.2.0 \
-    --hash=sha256:7b9ad3213bff7d357f888e0fab5101b56fa1a0548ee77d121c3a3dbfbef4cb2e \
-    --hash=sha256:f23d5cb7d862b104401d9021fc82e5fa0e0cf57b7660a1331425aab0c691d021 \
-    # via boto3
+s3transfer==0.3.1 \
+    --hash=sha256:248dffd2de2dfb870c507b412fc22ed37cd3255293e293c395158e7c55fbe5f9 \
+    --hash=sha256:80ed96731b3bd77395cd6197246069092015e1124164b2c152c8f741a823dd04    # via boto3
 six==1.12.0 \
     --hash=sha256:3350809f0555b11f552448330d0b52d5f24c91a322ea4a15ef22629740f3761c \
     --hash=sha256:d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73 \
