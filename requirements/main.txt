@@ -269,11 +269,10 @@ taskcluster==7.0.1 \
 taskhuddler==0.3.0 \
     --hash=sha256:b4343b17a58e88678a187275d5dbb87c406b8e538dd6f3015df7107bdee426df \
     --hash=sha256:e1fc4b49886a5d2d02e5048aee6353e317f37195b7c0454b5c04caa146faa063
-typing-extensions==3.7.2 \
-    --hash=sha256:07b2c978670896022a43c4b915df8958bec4a6b84add7f2c87b2b728bda3ba64 \
-    --hash=sha256:f3f0e67e1d42de47b5c67c32c9b26641642e9170fe7e292991793705cd5fef7c \
-    --hash=sha256:fb2cd053238d33a8ec939190f30cfd736c00653a85a2919415cecf7dc3d9da71 \
-    # via aiohttp
+typing-extensions==3.7.4.2 \
+    --hash=sha256:6e95524d8a547a91e08f404ae485bbb71962de46967e1b71a0cb89af24e761c5 \
+    --hash=sha256:79ee589a3caca649a9bfd2a8de4709837400dfa00b6cc81962a1e6a1815969ae \
+    --hash=sha256:f8d2bd89d25bc39dabe7d23df520442fa1d8969b82544370e03d88b5a591c392    # via aiohttp
 typing==3.6.6 \
     --hash=sha256:4027c5f6127a6267a435201981ba156de91ad0d1d98e9ddc2aa173453453492d \
     --hash=sha256:57dcf675a99b74d64dacf6fba08fb17cf7e3d5fdff53d4a30ea2a5e7e52543d4 \
