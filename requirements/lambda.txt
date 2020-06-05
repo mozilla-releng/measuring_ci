@@ -42,9 +42,9 @@ attrs==19.1.0 \
     --hash=sha256:69c0dbf2ed392de1cb5ec704444b08a5ef81680a61cb899dc08127123af36a79 \
     --hash=sha256:f0b870f674851ecbfbbbd364d6b5cbdff9dcedbc7f3f5e18a6891057f21fe399 \
     # via aiohttp
-boto3==1.9.132 \
-    --hash=sha256:35e23af3fcb0d38def987e1e4fc0652dd654b3eb0e4c9c8b2869cdaf289fbfa7 \
-    --hash=sha256:603572f3824be5efc683b4c2327e2ef871d52158790b16ff754cb76b356ec3b5
+boto3==1.13.24 \
+    --hash=sha256:5df1f3f84587b4d812f6f178031119b80920822b459bbb70ad49f431128655dc \
+    --hash=sha256:d19fb5b7f27c29a7a036e36888e9584132e2f8edfa6ef906ea5a712e3e29962c
 botocore==1.12.132 \
     --hash=sha256:35c46cf79cbd7fa9b25bee74972e77756e6a584beab10f7ff52abba308e5149e \
     --hash=sha256:f7200836d7dd77feae3af9c2e9d7769f69fb8d0ef760da635f3cb5c2ddcb8ade \
